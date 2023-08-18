@@ -7,7 +7,7 @@ services:
       - db-data:/var/lib/mysql
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-      DATABASE: 'sf-react'
+      MYSQL_DATABASE: 'sf-react'
     networks:
       - dev
 
