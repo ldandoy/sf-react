@@ -10,11 +10,15 @@ RUN curl -sS https://getcomposer.org/installer | php -- &&  mv composer.phar /us
 
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && apt-get install -y nodejs
 
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN apt update && apt install -y yarn
+
 RUN curl -sS https://get.symfony.com/cli/installer | bash - &&  mv /root/.symfony5/bin/symfony /usr/local/bin
 
 RUN docker-php-ext-configure intl
 
-RUN docker-php-ext-install pdo pdo_mysql opcache intl zip calendar dom mbstring gd xsl &&  pecl install apcu && docker-php-ext-enable apcu
+RUN docker-php-ext-install pdo pdo_mysql opcache intl zip exif calendar dom mbstring gd xsl &&  pecl install apcu && docker-php-ext-enable apcu
 
 WORKDIR /var/www/
 
