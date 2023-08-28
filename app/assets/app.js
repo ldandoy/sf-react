@@ -1,3 +1,7 @@
+import { registerReactControllerComponents } from '@symfony/ux-react';
+import './bootstrap.js';
 import './styles/app.scss';
 
-import './js/react/app';
+require('bootstrap');
+
+registerReactControllerComponents(require.context('./react/controllers', true, /\.(j|t)sx?$/));
