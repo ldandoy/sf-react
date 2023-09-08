@@ -12,6 +12,8 @@ use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
 use App\Entity\Trait\SlugTrait;
 use App\Entity\Trait\BaseTrait;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -24,6 +26,8 @@ use Symfony\Component\Validator\Constraints as Assert;
     operations: [
         new Get(normalizationContext: ['groups' => 'product:item']),
         new GetCollection(normalizationContext: ['groups' => 'product:list']),
+        new Patch(),
+        new Post(),
         new Delete()
     ],
     order: ['createdAt' => 'DESC'],
