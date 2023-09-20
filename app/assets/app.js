@@ -4,4 +4,4 @@ import './styles/app.scss';
 
 require('bootstrap');
 
-registerReactControllerComponents(require.context('./react/controllers', true, /\.(j|t)sx?$/));
+registerReactControllerComponents(require.context('./react/apps', true, /\.(j|t)sx?$/));
